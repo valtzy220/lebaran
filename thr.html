@@ -195,7 +195,6 @@
   </footer>
 
   <script>
-    // BINTANG
     const starsContainer = document.getElementById('stars');
     for (let i = 0; i < 60; i++) {
       let star = document.createElement('span');
@@ -204,11 +203,16 @@
       star.style.animationDelay = Math.random() * 3 + 's';
       starsContainer.appendChild(star);
     }
-
-    // BUKA AMPLOP
+  
     const envelope = document.getElementById('envelope');
-
+  
+    // Desktop (double click)
     envelope.addEventListener('dblclick', () => {
+      envelope.classList.toggle('open');
+    });
+  
+    // Mobile (tap)
+    envelope.addEventListener('click', () => {
       envelope.classList.toggle('open');
     });
   </script>
