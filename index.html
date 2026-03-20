@@ -2,156 +2,55 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome Idul Fitri</title>
+
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: radial-gradient(circle at top, #1c3b2f, #0f2027);
       font-family: 'Segoe UI', sans-serif;
       color: white;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* CONTAINER UPGRADE */
-.container {
-  text-align: center;
-  animation: fadeIn 2s ease forwards;
-  z-index: 2;
-  max-width: 700px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
-}
-
-/* JUDUL */
-h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  opacity: 0;
-  animation: fadeInText 2s ease forwards;
-  animation-delay: 1s;
-}
-
-/* SUB JUDUL */
-h2 {
-  font-size: 1.2rem;
-  opacity: 0;
-  animation: fadeInText 2s ease forwards;
-  animation-delay: 1.5s;
-  margin-bottom: 25px;
-  color: #f9c74f;
-}
-
-/* PARAGRAF */
-p {
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  color: rgba(255,255,255,0.85);
-  opacity: 0;
-  animation: fadeInText 2s ease forwards;
-}
-
-/* DELAY PARAGRAF BIAR MUNCUL BERURUTAN */
-p:nth-of-type(1) {
-  animation-delay: 2s;
-}
-
-p:nth-of-type(2) {
-  animation-delay: 2.5s;
-}
-
-/* TOMBOL BIAR NYAMBUNG */
-a {
-  margin-top: 15px;
-  display: inline-block;
-  padding: 14px 28px;
-  background: linear-gradient(45deg, #f9c74f, #ffd166);
-  color: black;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  opacity: 0;
-  animation: fadeInText 2s ease forwards, pulse 2s infinite;
-  animation-delay: 3s;
-  box-shadow: 0 0 15px rgba(255, 209, 102, 0.6);
-  transition: 0.3s;
-}
-
-a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(255, 209, 102, 1);
-}
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      opacity: 0;
-      animation: fadeInText 2s ease forwards;
-      animation-delay: 1s;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      opacity: 0;
-      animation: fadeInText 2s ease forwards;
-      animation-delay: 1.5s;
-      margin-bottom: 30px;
-    }
-
-    /* TOMBOL UPGRADE */
-    
-
-    
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* Bulan */
+    /* BACKGROUND ORNAMEN */
     .moon {
       position: absolute;
-      top: 80px;
-      right: 100px;
-      width: 80px;
-      height: 80px;
+      top: 60px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
       background: #fff;
       border-radius: 50%;
-      box-shadow: 0 0 30px #fff;
+      box-shadow: 0 0 20px #fff;
     }
 
     .moon::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 20px;
-      width: 80px;
-      height: 80px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
       background: #0f2027;
       border-radius: 50%;
     }
 
-    /* Masjid */
     .mosque {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 150px;
+      height: 120px;
       background: url('https://i.ibb.co/2W3vYcM/mosque-silhouette.png') no-repeat center;
       background-size: cover;
       opacity: 0.3;
     }
 
-    /* Bintang */
     .stars span {
       position: absolute;
       width: 2px;
@@ -165,46 +64,102 @@ a:hover {
       50% { opacity: 1; }
     }
 
+    /* CONTAINER */
+    .container {
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease forwards;
+      z-index: 2;
+    }
+
+    /* TEXT */
+    h1 {
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      margin-bottom: 10px;
+      animation: fadeInText 1.5s ease forwards;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      color: #f9c74f;
+      margin-bottom: 20px;
+      animation: fadeInText 1.8s ease forwards;
+    }
+
+    p {
+      font-size: clamp(0.95rem, 3.8vw, 1rem);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+      animation: fadeInText 2s ease forwards;
+    }
+
+    /* BUTTON */
+    a {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 14px 26px;
+      font-size: clamp(0.9rem, 4vw, 1rem);
+      background: linear-gradient(45deg, #f9c74f, #ffd166);
+      color: black;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 209, 102, 0.6);
+      animation: pulse 2s infinite;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* ANIMASI */
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.1); }
+      from { opacity: 0; transform: scale(1.05); }
       to { opacity: 1; transform: scale(1); }
     }
 
     @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .fade-out {
-      animation: fadeOut 1s ease forwards;
+      animation: fadeOut 1s forwards;
     }
 
     @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: scale(0.9);
-      }
+      to { opacity: 0; transform: scale(0.95); }
     }
-    /* FOOTER */
-.footer {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 1px;
-  animation: fadeInText 2s ease forwards;
-  animation-delay: 3.5s;
-}
 
-/* Glow halus di nama */
-.footer::after {
-  content: " ✨";
-  opacity: 0.7;
-}
+    /* FOOTER */
+    .footer {
+      margin-top: auto;
+      padding: 10px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer span {
+      color: #f9c74f;
+      text-shadow: 0 0 8px rgba(249,199,79,0.8);
+    }
+
   </style>
 </head>
+
 <body>
 
   <div class="moon"></div>
@@ -213,24 +168,26 @@ a:hover {
 
   <div class="container" id="mainContent">
     <h1>Selamat Hari Raya Idul Fitri</h1>
-    <h2>Minal Aidzin Wal Faizdin, Mohon Maaf Lahir dan Batin </h2>
-    <p><b>
-        Di hari yang penuh berkah ini, aku berharap kamu selalu diberikan 
-        kebahagiaan, kesehatan, dan segala hal baik dalam hidupmu. 🌙
-        </b>
-      </p>
-      
-      <p>
-        <b>
-        Maafin aku ya kalau selama ini ada kata atau sikap yang kurang berkenan. 
-        Semoga kita bisa saling memaafkan dan tetap menjaga hubungan baik ke depannya. 🙏
-        </b>
-      </p>
+    <h2>Minal Aidzin Wal Faizdin, Mohon Maaf Lahir dan Batin</h2>
+
+    <p>
+      Di hari yang penuh berkah ini, semoga kamu selalu diberikan kebahagiaan,
+      kesehatan, dan segala hal baik dalam hidupmu. 🌙
+    </p>
+
+    <p>
+      Maafin aku ya kalau selama ini ada kata atau sikap yang kurang berkenan.
+      Semoga kita bisa saling memaafkan dan tetap menjaga hubungan baik. 🙏
+    </p>
+
     <a href="thr.html" onclick="handleClick(event)">Ambil THR 🎁</a>
   </div>
 
+  <footer class="footer">
+    © 2026 <span>Nnval</span>. All Rights Reserved.
+  </footer>
+
   <script>
-    // Bintang random
     const starsContainer = document.getElementById('stars');
     for (let i = 0; i < 60; i++) {
       let star = document.createElement('span');
@@ -240,20 +197,15 @@ a:hover {
       starsContainer.appendChild(star);
     }
 
-    function handleClick(event) {
-      event.preventDefault();
-      const content = document.getElementById('mainContent');
-
-      content.classList.add('fade-out');
+    function handleClick(e) {
+      e.preventDefault();
+      document.getElementById('mainContent').classList.add('fade-out');
 
       setTimeout(() => {
         window.location.href = "thr.html";
-      }, 1000);
+      }, 800);
     }
   </script>
-<footer class="footer">
-    © 2026 Nnval. All Rights Reserved.
-  </footer>
-</body>
 
+</body>
 </html>
